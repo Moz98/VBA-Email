@@ -8,7 +8,7 @@
 
 ### OBJETIVO: Criar através de uma planilha um sistema automatizado de envio de E-mails
 
-***Obs: 
+***Obs***: 
 
 -Algumas mudanças de estrutura foram feitas para que o projeto possa se estender a outros usos e não necessariamente só para a empresa mencionada;
 
