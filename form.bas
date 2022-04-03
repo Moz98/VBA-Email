@@ -111,19 +111,26 @@ End Sub
 
 Private Sub cmdAtualizar_Click()
 
-'-----------------------------------------------------------
 If Me.txtIndice.Value = "" Then
 MsgBox "Selecione alguma empresa", vbInformation
 Exit Sub
 End If
-'-----------------------------------------------------------
+'----------------------------------------------------------------------------------------
+Dim Att As VbMsgBoxResult
+Att = MsgBox("Você tem certeza que deseja atualizar", vbQuestion + vbYesNo, "Atualizar")
+
+
+If Att = vbYes Then
+'-----------------------------------------------------------------------------------------
+                  
+                  
                   'Atualização
 Dim sh As Worksheet
 Set sh = ThisWorkbook.Sheets("Banco de Dados")
 Dim selected_row As Long
 selected_row = Application.WorksheetFunction.Match(CLng(Me.txtIndice.Value), sh.Range("B:B"), 0)
 
-'------------------- Validação ---------------------------
+'------------------- Validação --------------------------------------------------------------------
                   'Situação
 If Me.ComboSituação.Value = "" Then
 MsgBox "Por Favor insira a situação da Empresa", vbExclamation
@@ -172,8 +179,12 @@ Me.txtTelefone.Value = ""
 Me.txtIndice.Value = ""
 '--------------------------------------------------------------
 
-Call Refresh_data
 
+MsgBox "Dados atualizados com sucesso", vbInformation
+
+End If
+
+Call Refresh_data
 
 End Sub
 '======================== BOTÃO RESETAR =================================
@@ -201,6 +212,17 @@ MsgBox "Selecione alguma empresa", vbInformation
 Exit Sub
 End If
 
+
+'---------------------------------------------------------------------------------------------------
+Dim Att As VbMsgBoxResult
+Del = MsgBox("Você tem certeza que deseja deletar", vbExclamation + vbYesNo, "Atualizar")
+
+
+If Del = vbYes Then
+
+
+'---------------------------------------------------------------------------------------------------
+
 Dim sh As Worksheet
 Set sh = ThisWorkbook.Sheets("Banco de Dados")
 Dim selected_row As Long
@@ -222,7 +244,9 @@ Me.txtEmail.Value = ""
 Me.txtTelefone.Value = ""
 
 Call Refresh_data
+MsgBox "Dado deletado com sucesso", vbInformation
 
+End If
 
 End Sub
 
