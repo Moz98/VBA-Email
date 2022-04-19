@@ -22,6 +22,7 @@ last_row = Application.WorksheetFunction.CountA(sh.Range("A:A"))
 With Me.ListData
     .ColumnHeads = True
     .ColumnCount = 14
+    .ColumnWidths = "40, 30, 85, 35"
     
     If last_row = 1 Then
         .RowSource = "'Banco de Dados'!A2:N2"
